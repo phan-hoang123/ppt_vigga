@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Slide Báo Cáo Dự Án VIGGA - Siêu Cấp 3D (Full 14 Slide)</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reset.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/theme/black.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Grotesk:wght@500;700&display=swap');
+
+        .reveal { 
+            font-family: 'Inter', sans-serif; 
+            font-size: 26px; /* Cỡ chữ vừa phải */
+            color: #e2e8f0;
+        }
+        
+        .reveal h1, .reveal h2, .reveal h3 { 
+            font-family: 'Space Grotesk', sans-serif;
+            text-transform: uppercase;
+            font-weight: 800;
+            letter-spacing: 2px;
+            margin-bottom: 30px;
+        }
+
+        .reveal h2 { font-size: 1.5em; }
+        .reveal h3 { font-size: 1.1em; color: #94a3b8; }
+
+        /* Chữ đổ màu Gradient hiện đại */
+        .text-gradient {
+            background: linear-gradient(135deg, #0ea5e9 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+        }
+
+        /* Box Glassmorphism (Kính mờ) chuẩn Apple */
+        .glass-panel {
+            background: rgba(15, 23, 42, 0.4);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 20px;
+            padding: 30px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+            text-align: left;
+        }
+
+        .glass-panel li {
+            margin-bottom: 18px;
+            font-size: 0.9em;
+            line-height: 1.6;
+            list-style-type: none;
+            color: #cbd5e1;
+        }
+
+        .glass-panel li i { margin-right: 15px; width: 25px; text-align: center; font-size: 1.2em; }
+        
+        .icon-cyan { color: #22d3ee; }
+        .icon-emerald { color: #34d399; }
+        .icon-rose { color: #fb7185; }
+        .icon-amber { color: #fbbf24; }
+
+        /* Bố cục chia cột */
+        .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+        .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+
+        /* Hiệu ứng hình ảnh 3D bay bổng (Đã chỉnh chậm lại) */
+        .image-3d {
+            border-radius: 16px;
+            box-shadow: -20px 20px 50px rgba(0,0,0,0.6), 0 0 0 1px rgba(255,255,255,0.1);
+            transform: perspective(1000px) rotateY(-15deg) rotateX(5deg);
+            transition: all 0.8s ease !important; /* Mượt hơn */
+            width: 100%;
+            max-height: 380px;
+            object-fit: cover;
+        }
+        .image-3d:hover {
+            transform: perspective(1000px) rotateY(0deg) rotateX(0deg) scale(1.03);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.8), 0 0 20px rgba(14, 165, 233, 0.4);
+        }
+
+        /* Card nhỏ */
+        .card-3d {
+            background: linear-gradient(145deg, rgba(30,41,59,0.7), rgba(15,23,42,0.9));
+            padding: 25px;
+            border-radius: 16px;
+            border-top: 1px solid rgba(255,255,255,0.1);
+            border-left: 1px solid rgba(255,255,255,0.1);
+            box-shadow: 10px 10px 30px rgba(0,0,0,0.5);
+            transform: translateY(0);
+            transition: transform 0.6s ease;
+        }
+        .card-3d:hover { transform: translateY(-10px); border-color: #0ea5e9; }
+
+        .code-ui {
+            font-family: monospace;
+            background: #020617;
+            color: #34d399;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 0.7em;
+            border: 1px solid #1e293b;
+        }
+        
+        /* Tùy chỉnh làm chậm Animation của Fragment (Hiệu ứng bay chữ) */
+        .reveal .fragment {
+            transition: all 0.8s ease-in-out !important;
+        }
+    </style>
+</head>
+<body>
+    <div class="reveal">
+        <div class="slides">
+
+            <section data-background-image="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1920" data-background-opacity="0.15">
+                <h1 style="font-size: 3.5em; letter-spacing: 8px; margin-bottom: 0;">VIGGA<span style="color: #0ea5e9;">.</span></h1>
+                <h3 style="color: #64748b; font-weight: 400; font-size: 1em; letter-spacing: 3px; margin-top: 10px;">HỆ THỐNG QUẢN LÝ TRANG TRẠI THÔNG MINH</h3>
+                
+                <div class="glass-panel" style="display: inline-block; padding: 25px 50px; text-align: center; margin-top: 50px;">
+                    <p style="margin: 0; font-size: 0.7em; color: #94a3b8; text-transform: uppercase; letter-spacing: 2px;">Sinh viên thực hiện</p>
+                    <h2 style="margin: 10px 0; font-size: 1.4em; color: #fff;">Phan Duy Hoàng</h2>
+                    <h2 style="margin: 10px 0; font-size: 1.4em; color: #fff;">Nguyễn Quang Quân</h2>
+                    <h2 style="margin: 10px 0; font-size: 1.4em; color: #fff;">Nguyễn Thị Hồng Mơ</h2>
+                    <h2 style="margin: 10px 0; font-size: 1.4em; color: #fff;">Dương Thị Kim Yến</h2>
+
+                </div>
+                <p style="font-size: 0.5em; margin-top: 40px; color: #475569;" class="fragment blink">Ấn [ ENTER ] để tiếp tục</p>
+            </section>
+
+            <section data-background-color="#0f172a">
+                <h2>1. BÀI TOÁN <span class="text-gradient">THỰC TIỄN</span></h2>
+                <div class="grid-2">
+                    <div class="glass-panel">
+                        <ul>
+                            <li class="fragment fade-right">
+                                <i class="fa-solid fa-virus icon-rose"></i>
+                                <strong>Dịch bệnh hô hấp:</strong> Biến thiên khí độc NH3 và sốc nhiệt làm gia cầm bệnh hàng loạt.
+                            </li>
+                            <li class="fragment fade-right">
+                                <i class="fa-solid fa-bolt icon-cyan"></i>
+                                <strong>Lãng phí tài nguyên:</strong> Hệ thống làm mát vận hành thủ công gây tiêu hao điện, nước.
+                            </li>
+                            <li class="fragment fade-right">
+                                <i class="fa-solid fa-file-invoice-dollar icon-emerald"></i>
+                                <strong>Đứt gãy dữ liệu:</strong> Báo cáo hạch toán chậm trễ từ 15-30 ngày.
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="fragment fade-left">
+                        <img src="mo-hinh-ga-de.jpg" alt="Farm" class="image-3d">
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-image="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920" data-background-opacity="0.1">
+                <h2>2. MỤC TIÊU <span class="text-gradient">NGHIÊN CỨU</span></h2>
+                <div class="grid-3">
+                    <div class="card-3d fragment slide-up">
+                        <i class="fa-solid fa-microchip fa-2x icon-cyan" style="margin-bottom: 15px;"></i>
+                        <h3 style="font-size: 0.9em; color: #e2e8f0;">GIÁM SÁT 24/7</h3>
+                        <p style="font-size: 0.7em; color: #94a3b8;">Thu thập vi khí hậu Real-time thông qua mạng lưới cảm biến IoT.</p>
+                    </div>
+                    <div class="card-3d fragment slide-up">
+                        <i class="fa-solid fa-gears fa-2x icon-emerald" style="margin-bottom: 15px;"></i>
+                        <h3 style="font-size: 0.9em; color: #e2e8f0;">ĐIỀU KHIỂN THÔNG MINH</h3>
+                        <p style="font-size: 0.7em; color: #94a3b8;">Tự động kích hoạt thiết bị tản nhiệt, hút mùi bằng AI/Thuật toán.</p>
+                    </div>
+                    <div class="card-3d fragment slide-up">
+                        <i class="fa-solid fa-chart-pie fa-2x icon-rose" style="margin-bottom: 15px;"></i>
+                        <h3 style="font-size: 0.9em; color: #e2e8f0;">CHUYỂN ĐỔI SỐ KẾ TOÁN</h3>
+                        <p style="font-size: 0.7em; color: #94a3b8;">Hạch toán tự động điện, nước vào báo cáo tài chính ngay lập tức.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-color="#020617">
+                <h2>3. KIẾN TRÚC <span class="text-gradient">3 TẦNG (3-TIER)</span></h2>
+                <div class="grid-2">
+                    <div class="fragment fade-right">
+                        <img src="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=800" alt="Server" class="image-3d">
+                    </div>
+                    <div class="glass-panel">
+                        <ul>
+                            <li class="fragment fade-left">
+                                <span style="color: #0ea5e9; font-weight: bold;">TẦNG BIÊN (EDGE):</span><br>ESP32 NodeMCU kết nối vạn vật, đẩy gói tin JSON qua Wi-Fi.
+                            </li>
+                            <li class="fragment fade-left">
+                                <span style="color: #10b981; font-weight: bold;">TẦNG BACKEND:</span><br>Node.js Serverless (Railway) xử lý tính toán. TiDB lưu trữ.
+                            </li>
+                            <li class="fragment fade-left">
+                                <span style="color: #fb7185; font-weight: bold;">TẦNG GIAO DIỆN:</span><br>Web Frontend vẽ đồ thị và cung cấp UI quản trị Mini-ERP.
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-image="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1920" data-background-opacity="0.15">
+                <h2>4. LỰA CHỌN <span class="text-gradient">PHẦN CỨNG</span></h2>
+                <div class="grid-2">
+                    <div class="glass-panel fragment fade-up">
+                        <h3 style="font-size: 1em; color: #0ea5e9;">Vi điều khiển ESP32</h3>
+                        <p style="font-size: 0.75em; color: #cbd5e1;">Xung nhịp 240MHz, tích hợp Wi-Fi. Khắc phục nhược điểm rườm rà của Arduino truyền thống.</p>
+                    </div>
+                    <div class="glass-panel fragment fade-up">
+                        <h3 style="font-size: 1em; color: #10b981;">Module Cảm biến</h3>
+                        <p style="font-size: 0.75em; color: #cbd5e1;"><strong>DHT22:</strong> Đo nhiệt độ, độ ẩm chính xác cao.<br><strong>MQ-135:</strong> Phát hiện nồng độ NH3 qua chân ADC Analog.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>5. BÀI TOÁN <span class="text-gradient">NÚT THẮT (BOTTLENECK)</span></h2>
+                <div class="glass-panel" style="max-width: 900px; margin: 0 auto;">
+                    <ul>
+                        <li class="fragment fade-up">
+                            <i class="fa-solid fa-triangle-exclamation icon-rose"></i>
+                            <strong>Vấn đề:</strong> Ép mạch ESP32 vừa đọc cảm biến, vừa chạy AI Camera sẽ gây thiếu chân GPIO và tràn RAM (Crash).
+                        </li>
+                        <li class="fragment fade-up">
+                            <i class="fa-solid fa-lightbulb icon-amber"></i>
+                            <strong>Giải pháp Decoupling (Tách lớp):</strong>
+                            <ul style="margin-top: 10px; margin-left: 20px;">
+                                <li>Mạch ESP32: Chỉ tập trung đo cảm biến và đóng/ngắt Relay.</li>
+                                <li>Phân tích AI: Đẩy lên trình duyệt Web xử lý bằng thư viện <code>ml5.js</code> để mạch chạy ổn định 24/7.</li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section data-background-color="#0f172a">
+                <h2>6. MÔ PHỎNG <span class="text-gradient">WOKWI SIMULATOR</span></h2>
+                <div class="grid-2">
+                    <div class="glass-panel fragment fade-right">
+                        <ul>
+                            <li><i class="fa-solid fa-shield icon-cyan"></i>Giảm thiểu rủi ro cháy nổ phần cứng.</li>
+                            <li><i class="fa-solid fa-knob icon-amber"></i>Giả lập cảm biến khí độc bằng <strong>Biến trở (Potentiometer)</strong>.</li>
+                            <li><i class="fa-solid fa-code-compare icon-emerald"></i>Test chuẩn luồng API từ Cloud về mạch trước khi hàn thật.</li>
+                        </ul>
+                    </div>
+                    <div class="fragment fade-left">
+                        <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=800" alt="Wokwi" class="image-3d">
+                    </div>
+                </div>
+            </section>
+
+            <section>
+                <h2>7. CƠ SỞ DỮ LIỆU <span class="text-gradient">TIDB CLOUD</span></h2>
+                <div class="grid-3">
+                    <div class="card-3d fragment slide-up">
+                        <i class="fa-solid fa-server fa-2x icon-cyan" style="margin-bottom: 15px;"></i>
+                        <h3 style="font-size: 0.9em; color: #e2e8f0;">SERVERLESS</h3>
+                        <p style="font-size: 0.7em; color: #94a3b8;">Tự động co giãn (Auto-Scale) đáp ứng hàng ngàn chuồng trại.</p>
+                    </div>
+                    <div class="card-3d fragment slide-up">
+                        <i class="fa-solid fa-database fa-2x icon-amber" style="margin-bottom: 15px;"></i>
+                        <h3 style="font-size: 0.9em; color: #e2e8f0;">TƯƠNG THÍCH MYSQL</h3>
+                        <p style="font-size: 0.7em; color: #94a3b8;">Tương thích hoàn hảo với mã nguồn Node.js hiện hành.</p>
+                    </div>
+                    <div class="card-3d fragment slide-up">
+                        <i class="fa-solid fa-lock fa-2x icon-emerald" style="margin-bottom: 15px;"></i>
+                        <h3 style="font-size: 0.9em; color: #e2e8f0;">BẢO MẬT SSL</h3>
+                        <p style="font-size: 0.7em; color: #94a3b8;">Mã hóa đường truyền TLSv1.2, chống đánh cắp dữ liệu.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-image="https://images.unsplash.com/photo-1558494949-ef010cbdcc31?q=80&w=1920" data-background-opacity="0.1">
+                <h2>8. GIAO THỨC <span class="text-gradient">HTTP POLLING</span></h2>
+                <div class="glass-panel" style="max-width: 900px; margin: 0 auto;">
+                    <p style="font-size: 0.8em; color: #0ea5e9; font-weight: bold; margin-bottom: 10px;">Tại sao không dùng WebSockets?</p>
+                    <ul>
+                        <li class="fragment fade-up">
+                            <i class="fa-solid fa-clock icon-amber"></i>
+                            <strong>Chu kỳ 3 giây:</strong> Mạch báo cáo và hỏi lệnh định kỳ, sau đó ngủ. Không mở cổng mạng liên tục giúp mạch không bị treo.
+                        </li>
+                        <li class="fragment fade-up">
+                            <i class="fa-solid fa-fan icon-cyan"></i>
+                            <strong>Thực tiễn:</strong> Khí hậu thay đổi chậm, tạo độ trễ 3s giúp chống nhiễu cảm biến, tránh bật/tắt quạt liên tục gây cháy động cơ.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>9. THUẬT TOÁN <span class="text-gradient">ĐIỀU KHIỂN KÉP</span></h2>
+                <div class="grid-2">
+                    <div class="glass-panel fragment fade-right">
+                        <h3 style="font-size: 1em; color: #fff;">Logic Quyết Định</h3>
+                        <p style="font-size: 0.75em; color: #cbd5e1;">Sử dụng Toán tử HOẶC (||). Mạch kích hoạt Relay khi nhiệt độ nóng <strong>hoặc</strong> nồng độ NH3 vượt ngưỡng cảnh báo.</p>
+                    </div>
+                    <div class="fragment fade-left code-ui" style="text-align: left;">
+                        <span style="color: #64748b;">// Quyết định tại Web Server</span><br><br>
+                        <span style="color: #c4b5fd;">function</span> <span style="color: #60a5fa;">dieuKhien</span>(nhiet, khi) {<br>
+                        &nbsp;&nbsp;<span style="color: #fbbf24;">if</span> (nhiet >= <span style="color: #f472b6;">31</span> || khi >= <span style="color: #f472b6;">18</span>) {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c4b5fd;">return</span> <span style="color: #a7f3d0;">"ON"</span>; <span style="color: #64748b;">// Bật Quạt</span><br>
+                        &nbsp;&nbsp;} <span style="color: #c4b5fd;">else</span> {<br>
+                        &nbsp;&nbsp;&nbsp;&nbsp;<span style="color: #c4b5fd;">return</span> <span style="color: #a7f3d0;">"OFF"</span>;<br>
+                        &nbsp;&nbsp;}<br>
+                        }
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-color="#020617">
+                <h2>10. GIAO DIỆN <span class="text-gradient">WEB & MINI ERP</span></h2>
+                <div class="glass-panel">
+                    <ul>
+                        <li class="fragment fade-up">
+                            <i class="fa-solid fa-paintbrush icon-cyan"></i>
+                            <strong>TailwindCSS:</strong> Tối ưu hóa trải nghiệm người dùng (UX/UI). Đồ thị Chart.js mượt mà.
+                        </li>
+                        <li class="fragment fade-up">
+                            <i class="fa-solid fa-clone icon-amber"></i>
+                            <strong>Kỹ thuật Nhân bản:</strong> Trình diễn giả lập 5 chuồng trại đa dạng từ 1 Node vật lý để chứng minh khả năng Scale.
+                        </li>
+                        <li class="fragment fade-up">
+                            <i class="fa-solid fa-robot icon-emerald"></i>
+                            <strong>Tự động hóa ERP:</strong> Thuật toán nền tự động bóc tách chi phí phát sinh vào danh mục hạch toán kế toán.
+                        </li>
+                    </ul>
+                </div>
+            </section>
+
+            <section>
+                <h2>11. ĐÁNH GIÁ <span class="text-gradient">KẾT QUẢ</span></h2>
+                <div class="grid-2">
+                    <div class="card-3d fragment slide-up">
+                        <i class="fa-solid fa-microchip fa-2x icon-cyan" style="margin-bottom: 15px;"></i>
+                        <h3 style="font-size: 1em; color: #e2e8f0;">PHẦN CỨNG</h3>
+                        <p style="font-size: 0.7em; color: #94a3b8;">Luồng giao tiếp 2 chiều ổn định. Relay đóng ngắt chuẩn xác theo lệnh Cloud.</p>
+                    </div>
+                    <div class="card-3d fragment slide-up">
+                        <i class="fa-solid fa-laptop-code fa-2x icon-emerald" style="margin-bottom: 15px;"></i>
+                        <h3 style="font-size: 1em; color: #e2e8f0;">PHẦN MỀM</h3>
+                        <p style="font-size: 0.7em; color: #94a3b8;">Giao diện trực quan. Biểu đồ Real-time hoạt động trơn tru. Hệ thống ERP vận hành tốt.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-image="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1920" data-background-opacity="0.15">
+                <h2>12. HƯỚNG PHÁT TRIỂN <span class="text-gradient">TƯƠNG LAI</span></h2>
+                <div class="grid-2">
+                    <div class="glass-panel fragment fade-right">
+                        <h3 style="font-size: 1em; color: #34d399;">Nâng cấp Giao thức</h3>
+                        <p style="font-size: 0.75em; color: #cbd5e1;">Chuyển đổi từ HTTP sang giao thức nhẹ <strong>MQTT</strong> để giảm dung lượng gói tin khi áp dụng quy mô lớn.</p>
+                    </div>
+                    <div class="glass-panel fragment fade-left">
+                        <h3 style="font-size: 1em; color: #0ea5e9;">Tích hợp AI Camera</h3>
+                        <p style="font-size: 0.75em; color: #cbd5e1;">Sử dụng ESP32-CAM và nhận diện hình ảnh để đếm tổng đàn và cảnh báo vật nuôi ốm.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section data-background-color="#0f172a">
+                <h1 style="font-size: 4.5em; margin-bottom: 20px;" class="text-gradient fragment zoom-in">CẢM ƠN!</h1>
+                <p style="font-size: 0.8em; color: #94a3b8;" class="fragment fade-up">Báo cáo dự án VIGGA xin được kết thúc.</p>
+                
+                <div class="card-3d fragment slide-up" style="max-width: 450px; margin: 50px auto; text-align: center;">
+                    <i class="fa-solid fa-microphone-lines fa-2x icon-cyan" style="margin-bottom: 15px;"></i>
+                    <h3 style="font-size: 1em; margin: 0; color: #fff;">Q&A SESSION</h3>
+                    <p style="font-size: 0.7em; color: #94a3b8; margin-top: 10px;">Kính mời Hội đồng đặt câu hỏi thảo luận</p>
+                </div>
+            </section>
+
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/reveal.js/4.3.1/reveal.min.js"></script>
+    <script>
+        Reveal.initialize({
+            hash: true,
+            slideNumber: 'c/t',
+            
+            // XÓA BỎ NÚT ĐIỀU HƯỚNG BÊN DƯỚI
+            controls: false, 
+            
+            // TĂNG ĐỘ TRỄ CHUYỂN SLIDE ĐỂ TRÔI NGHỆ THUẬT HƠN
+            transition: 'convex', 
+            transitionSpeed: 'slow', // <--- Lệnh ép tốc độ lướt siêu mượt
+            backgroundTransition: 'zoom',
+            
+            // CHUYỂN SLIDE BẰNG PHÍM ENTER
+            keyboard: {
+                13: 'next' // Phím Enter (Mã 13)
+            }
+        });
+    </script>
+</body>
+</html>
